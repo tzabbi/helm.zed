@@ -1,7 +1,14 @@
 name = "Helm"
 grammar = "helm"
 line_comments = ["# "]
+# Helm template files are .yaml/.yml files inside a chart's templates/ directory.
+# Because Zed matches path_suffixes globally, adding ".yaml" here would override
+# the built-in YAML language for every YAML file. Instead, switch the language
+# manually per-file or configure file associations in your Zed settings:
+#   "file_types": { "Helm": ["yaml", "yml"] }
 path_suffixes = [".helmignore"]
+tab_size = 2
+word_characters = ["-"]
 block_comment = ["{{/* ", " */}}"]
 brackets = [
     { start = "{{", end = "}}", close = true, newline = false },
